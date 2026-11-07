@@ -1,0 +1,40 @@
+name: R8 - Qualidade Continua
+
+on:
+  push:
+    branches: [atividade-08-qualidade, atividade-08-gate-falha]
+  pull_request:
+    branches: [atividade-08-qualidade]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validacao:
+    name: Build, format, testes e artefatos
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.403'
+      - name: Restaurar pacotes
+        run: dotnet restore HubPedidos.sln
+      - name: Build Release e analisadores
+        run: dotnet build HubPedidos.sln -c Release --no-restore
+      - name: Gate de formatacao da Unidade 8
+        run: dotnet format HubPedidos.IntegrationTests/HubPedidos.IntegrationTests.csproj --verify-no-changes --no-restore --severity error
+      - name: Testes de integracao com SQLite efemero
+        run: dotnet test HubPedidos.IntegrationTests/HubPedidos.IntegrationTests.csproj -c Release --no-build --logger 'trx;LogFileName=r8-integration.trx' --results-directory artifacts
+      - name: Regressao sem dependencias externas
+        run: dotnet test HubPedidos.Tests/HubPedidos.Tests.csproj -c Release --no-build --filter 'FullyQualifiedName!~Relatorio3DbTests' --logger 'trx;LogFileName=r1-r7-offline.trx' --results-directory artifacts
+      - name: Publicar resultados (inclusive em caso de falha)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r8-resultados-${{ github.run_number }}
+          path: '**/artifacts/*.trx'
+          if-no-files-found: warn

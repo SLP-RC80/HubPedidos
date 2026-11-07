@@ -1,0 +1,11 @@
+# Escopo restrito ao R8: nao altera a formatacao dos Relatorios 1 a 7.
+root = false
+
+[*.cs]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+# CA2200: evitar 'throw ex;' que perde o stack trace original.
+dotnet_diagnostic.CA2200.severity = error
