@@ -1,6 +1,7 @@
 export HUBPEDIDOS_DB='Host=ep-restless-cloud-b6c2vwtp.c-2.sa-east-1.aws.neon.tech;Port=5432;Database=neondb;Username=neondb_owner;Password=npg_KAUWEoOCLv65;SSL Mode=Require;Channel Binding=Require'
 
 git switch main
+git branch -D atividade-00-xxxx
 
 atividade-01-contratos
 atividade-02-performance
@@ -26,3 +27,19 @@ git commit -m "Relatorio 6 - arquitetura"
 git push -u origin atividade-06-arquitetura
 
 git status -sb
+
+
+*************
+cd /workspaces/HubPedidos
+
+git status -sb
+
+git switch atividade-06-arquitetura
+
+git restore --source atividade-05-diagnostic --staged --worktree :/
+
+git status -sb
+
+git commit -m "Copiar arquivos do Relatorio 5 para o Relatorio 6"
+
+git push -u origin atividade-06-arquitetura
