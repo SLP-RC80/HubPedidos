@@ -480,3 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Conexao de desenvolvimento Relatorio 3 - NAO VERSIONAR
+.env.relatorio3

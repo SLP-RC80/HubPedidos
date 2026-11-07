@@ -1,0 +1,45 @@
+{
+  "nome": "antes",
+  "duracao_medicao_s": 19.97,
+  "planejadas_por_s": 30,
+  "aquecimento_s": 5,
+  "total": 600,
+  "p50_ms": 1.334,
+  "p95_ms": 2.235,
+  "p99_ms": 3.502,
+  "requisicoes_por_s": 30.045,
+  "erros_http": 76,
+  "taxa_erro_pct": 12.667,
+  "timeouts": 0,
+  "codigos_http": {
+    "200": 150,
+    "202": 374,
+    "429": 76
+  },
+  "post": {
+    "qtd": 450,
+    "p50_ms": 1.348,
+    "p95_ms": 2.235,
+    "p99_ms": 3.849
+  },
+  "get": {
+    "qtd": 150,
+    "p50_ms": 1.293,
+    "p95_ms": 2.244,
+    "p99_ms": 2.967
+  },
+  "fila": {
+    "aceitos_delta": 374,
+    "processados_delta": 330,
+    "falhas_delta": 0,
+    "rejeitados_delta": 76,
+    "descartados_delta": 0,
+    "pico_fila": 40,
+    "pico_banco": 1,
+    "espera_media_ms": 1610.076,
+    "latencia_media_ms": 222.977,
+    "profundidade_atual": 40,
+    "aceitos_por_s": 18.728,
+    "processados_por_s": 16.525
+  }
+}

@@ -24,6 +24,7 @@
     <ProjectReference Include="..\HubPedidos.Domain\HubPedidos.Domain.csproj" />
     <ProjectReference Include="..\HubPedidos.Application\HubPedidos.Application.csproj" />
     <ProjectReference Include="..\HubPedidos.Infrastructure\HubPedidos.Infrastructure.csproj" />
+    <ProjectReference Include="..\HubPedidos.Relatorio4\HubPedidos.Relatorio4.csproj" />
   </ItemGroup>
 
 </Project>

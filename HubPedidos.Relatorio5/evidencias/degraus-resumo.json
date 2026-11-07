@@ -1,0 +1,57 @@
+[
+  {
+    "carga_req_s": 8,
+    "solicitacoes": 40,
+    "p95_ms": 6.259,
+    "http_429": 0,
+    "taxa_erro_pct": 0.0,
+    "aceitos": 30,
+    "processados": 30,
+    "pico_fila": 1,
+    "duracao_s": 4.878
+  },
+  {
+    "carga_req_s": 16,
+    "solicitacoes": 80,
+    "p95_ms": 2.407,
+    "http_429": 0,
+    "taxa_erro_pct": 0.0,
+    "aceitos": 60,
+    "processados": 60,
+    "pico_fila": 1,
+    "duracao_s": 4.94
+  },
+  {
+    "carga_req_s": 24,
+    "solicitacoes": 120,
+    "p95_ms": 2.764,
+    "http_429": 0,
+    "taxa_erro_pct": 0.0,
+    "aceitos": 90,
+    "processados": 89,
+    "pico_fila": 1,
+    "duracao_s": 4.96
+  },
+  {
+    "carga_req_s": 32,
+    "solicitacoes": 160,
+    "p95_ms": 1.95,
+    "http_429": 0,
+    "taxa_erro_pct": 0.0,
+    "aceitos": 120,
+    "processados": 120,
+    "pico_fila": 1,
+    "duracao_s": 4.971
+  },
+  {
+    "carga_req_s": 40,
+    "solicitacoes": 200,
+    "p95_ms": 1.696,
+    "http_429": 0,
+    "taxa_erro_pct": 0.0,
+    "aceitos": 150,
+    "processados": 149,
+    "pico_fila": 1,
+    "duracao_s": 4.977
+  }
+]

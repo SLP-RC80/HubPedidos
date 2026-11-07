@@ -1,0 +1,7 @@
+# Evidencias brutas e logs locais: podem ficar extensos.
+evidencias/*.nettrace
+evidencias/*.speedscope.json
+evidencias/*.log
+evidencias/*.csv
+__pycache__/
+# Resumos e comparacao MD/JSON podem ser versionados sem credenciais.

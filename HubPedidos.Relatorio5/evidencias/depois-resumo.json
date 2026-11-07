@@ -1,0 +1,44 @@
+{
+  "nome": "depois",
+  "duracao_medicao_s": 19.97,
+  "planejadas_por_s": 30,
+  "aquecimento_s": 5,
+  "total": 600,
+  "p50_ms": 1.288,
+  "p95_ms": 2.266,
+  "p99_ms": 4.148,
+  "requisicoes_por_s": 30.045,
+  "erros_http": 0,
+  "taxa_erro_pct": 0.0,
+  "timeouts": 0,
+  "codigos_http": {
+    "200": 150,
+    "202": 450
+  },
+  "post": {
+    "qtd": 450,
+    "p50_ms": 1.313,
+    "p95_ms": 2.406,
+    "p99_ms": 5.222
+  },
+  "get": {
+    "qtd": 150,
+    "p50_ms": 1.226,
+    "p95_ms": 2.241,
+    "p99_ms": 3.623
+  },
+  "fila": {
+    "aceitos_delta": 450,
+    "processados_delta": 448,
+    "falhas_delta": 0,
+    "rejeitados_delta": 0,
+    "descartados_delta": 0,
+    "pico_fila": 1,
+    "pico_banco": 2,
+    "espera_media_ms": 0.1024,
+    "latencia_media_ms": 60.1928,
+    "profundidade_atual": 0,
+    "aceitos_por_s": 22.534,
+    "processados_por_s": 22.434
+  }
+}
