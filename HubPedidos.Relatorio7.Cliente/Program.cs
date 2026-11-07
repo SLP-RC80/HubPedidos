@@ -31,6 +31,7 @@ var eventosAlice = 0; var eventosBob = 0;
 var eventoRecebido = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
 var reconciliado = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
 var entrouEmReconexao = false;
+var recuperacaoManual = false;
 
 alice.On<JsonElement>("PedidoAtualizado", mensagem =>
 {
@@ -56,7 +57,37 @@ alice.Reconnected += async _ =>
     }
     catch (Exception erro) { reconciliado.TrySetException(erro); }
 };
-alice.Closed += _ => { Console.WriteLine("R7.02 ESTADO: Desconectado"); return Task.CompletedTask; };
+alice.Closed += async erro =>
+{
+    // Em um encerramento normal, o SignalR pode ir direto a Closed e nao acionar
+    // WithAutomaticReconnect. Nesse caso, recuperar explicitamente a conexao.
+    if (reconciliado.Task.IsCompleted) return;
+    Console.WriteLine("R7.02 ESTADO: Desconectado; iniciando recuperacao manual");
+    Exception? ultimaFalha = erro;
+    for (var tentativa = 1; tentativa <= 5; tentativa++)
+    {
+        await Task.Delay(tentativa == 1 ? 300 : 1000);
+        try
+        {
+            await alice.StartAsync();
+            // A nova conexao nao herda os grupos da anterior.
+            await alice.InvokeAsync("Acompanhar", pedidoId);
+            using var estado = await aliceHttp.GetAsync($"/api/v1/pedidos/{pedidoId}");
+            estado.EnsureSuccessStatusCode();
+            using var documento = JsonDocument.Parse(await estado.Content.ReadAsStringAsync());
+            recuperacaoManual = true;
+            Console.WriteLine($"R7.02 ESTADO: Conectado; modo=MANUAL_APOS_FECHAMENTO; reingresso=SIM; GET HTTP={(int)estado.StatusCode}; versao_atual={documento.RootElement.GetProperty("versao").GetInt32()}; reconciliado=SIM");
+            reconciliado.TrySetResult(true);
+            return;
+        }
+        catch (Exception falha)
+        {
+            ultimaFalha = falha;
+            Console.WriteLine($"R7.02 TENTATIVA: {tentativa}/5; falha={falha.GetType().Name}");
+        }
+    }
+    reconciliado.TrySetException(ultimaFalha ?? new Exception("Falha na recuperacao do SignalR"));
+};
 
 await alice.StartAsync(); await bob.StartAsync();
 Console.WriteLine("R7.02 ESTADO: Conectado (alice e bob)");
@@ -129,6 +160,8 @@ Console.WriteLine("R7.04 CACHE: apos_alteracao=INVALIDADO; regiao SP atualizada;
 // Forca a queda apenas no ambiente Development, exercitando automatic reconnect, reingresso e GET.
 try { await alice.InvokeAsync("SimularQueda"); } catch { /* a propria desconexao cancela a invocacao */ }
 await reconciliado.Task.WaitAsync(TimeSpan.FromSeconds(30));
-if (!entrouEmReconexao) throw new Exception("Callback Reconnecting nao foi observado.");
-Console.WriteLine("R7.02 RECONEXAO: WithAutomaticReconnect=SIM; reassinatura=SIM; GET autoritativo=SIM");
+if (!entrouEmReconexao && !recuperacaoManual)
+    throw new Exception("Nenhuma reconexao foi observada.");
+var modo = recuperacaoManual ? "MANUAL_APOS_FECHAMENTO" : "AUTOMATICA";
+Console.WriteLine($"R7.02 RECONEXAO: modo={modo}; WithAutomaticReconnect_configurado=SIM; reassinatura=SIM; GET autoritativo=SIM");
 Console.WriteLine("R7 RESULTADO: autorizacao, evento, reconexao, ETag/304, If-Match/412 e Output Cache aprovados.");

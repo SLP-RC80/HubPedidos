@@ -1,4 +1,4 @@
-export HUBPEDIDOS_DB='Host=ep-restless-cloud-b6c2vwtp.c-2.sa-east-1.aws.neon.tech;Port=5432;Database=neondb;Username=neondb_owner;Password=PASSWORD;SSL Mode=Require;Channel Binding=Require'
+export HUBPEDIDOS_DB='Host=ep-restless-cloud-b6c2vwtp-pooler.c-2.sa-east-1.aws.neon.tech;Port=5432;Database=neondb;Username=neondb_owner;Password=SENHA;SSL Mode=Require;Channel Binding=Require'
 
 git switch main
 git switch -c atividade-00-xxxx
@@ -30,7 +30,6 @@ git push -u origin atividade-07-tempo-real
 
 git status -sb
 
-
 *************
 cd /workspaces/HubPedidos
 
@@ -47,4 +46,4 @@ git commit -m "Copiar arquivos do Relatorio 6 para o Relatorio 7"
 git push -u origin atividade-07-tempo-real
 
 ************
-npg_ Tu0WUpKv2HYM @ep
+npg_ Tu0WUpKv 2HYM
