@@ -1,5 +1,6 @@
 # HubPedidos
 export HUBPEDIDOS_DB='Host=ep-restless-cloud-b6c2vwtp.c-2.sa-east-1.aws.neon.tech;Port=5432;Database=neondb;Username=neondb_owner;Password=npg_KAUWEoOCLv65;SSL Mode=Require;Channel Binding=Require'
+
 atividade-01-contratos
 atividade-02-performance
 atividade-03-efcore
