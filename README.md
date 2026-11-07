@@ -13,9 +13,15 @@ git add -A
 
 git diff --cached --stat
 
+git commit -m "Relatorio 5 - diagnostico, perfilamento e evidencias"
+git push -u origin atividade-05-diagnostico
+
 cd /workspaces/HubPedidos
 
 git status --short --branch
 
-git switch -c atividade-05-diagnostic
-atividade-06-arquitetura
+git switch -c atividade-06-arquitetura
+
+cd /workspaces/HubPedidos
+
+git push origin --all
