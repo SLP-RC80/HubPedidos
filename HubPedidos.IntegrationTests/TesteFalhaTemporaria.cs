@@ -1,5 +1,6 @@
 using Xunit;
 namespace HubPedidos.IntegrationTests;
+
 public sealed class TesteFalhaTemporaria
 {
     [Fact]
