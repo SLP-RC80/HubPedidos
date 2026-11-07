@@ -13,6 +13,7 @@ etag=$(grep -i '^ETag:' "$TMP/headers" | head -1 | cut -d' ' -f2- | tr -d '\r')
 printf 'GET alice HTTP=%s; ETag presente=%s\n' "$code" "$([[ -n "$etag" ]] && echo SIM || echo NAO)"
 cat "$TMP/body"; printf '\n'
 printf '\n=== R7.03 IF-NONE-MATCH ===\n'
+: > "$TMP/304"
 code=$(curl -sS -o "$TMP/304" -w '%{http_code}' -H "Authorization: Bearer $R7_ALICE_KEY" -H "If-None-Match: $etag" "$URL/api/v1/pedidos/$ID")
 printf 'GET condicional HTTP=%s; corpo_bytes=%s (esperado 304/0)\n' "$code" "$(wc -c < "$TMP/304")"
 printf '\n=== R7.01 AUTORIZACAO ===\n'
