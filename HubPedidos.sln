@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubPedidos.Infrastructure",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubPedidos.Relatorio3", "HubPedidos.Relatorio3\HubPedidos.Relatorio3.csproj", "{6AEC3697-547D-4809-8BC4-9D852C688199}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubPedidos.Relatorio4", "HubPedidos.Relatorio4\HubPedidos.Relatorio4.csproj", "{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,18 @@ Global
 		{6AEC3697-547D-4809-8BC4-9D852C688199}.Release|x64.Build.0 = Release|Any CPU
 		{6AEC3697-547D-4809-8BC4-9D852C688199}.Release|x86.ActiveCfg = Release|Any CPU
 		{6AEC3697-547D-4809-8BC4-9D852C688199}.Release|x86.Build.0 = Release|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Debug|x64.Build.0 = Debug|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Debug|x86.Build.0 = Debug|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Release|x64.ActiveCfg = Release|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Release|x64.Build.0 = Release|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{55EBDEAA-82B9-45BC-A5EC-EDB6EBDF11EC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
