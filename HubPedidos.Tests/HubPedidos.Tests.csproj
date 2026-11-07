@@ -27,6 +27,7 @@
     <ProjectReference Include="..\HubPedidos.Relatorio4\HubPedidos.Relatorio4.csproj" />
     <ProjectReference Include="..\HubPedidos.Relatorio6\HubPedidos.Relatorio6.csproj" />
     <ProjectReference Include="..\HubPedidos.Relatorio6.ClienteV1\HubPedidos.Relatorio6.ClienteV1.csproj" />
+    <ProjectReference Include="..\HubPedidos.Relatorio7\HubPedidos.Relatorio7.csproj" />
   </ItemGroup>
 
 </Project>
