@@ -12,7 +12,7 @@ git branch -a
 
 cd /workspaces/HubPedidos
 
-git switch atividade-01-contratos
+git switch atividade-05-diagnostic
 
 git status --short --branch
 
@@ -20,8 +20,8 @@ git add -A
 
 git diff --cached --stat
 
-git commit -m "Relatorio 1 - contratos"
+git commit -m "Relatorio 5 - duplicado"
 
-git push -u origin atividade-01-contratos
+git push -u origin atividade-05-diagnostic
 
 git status -sb
